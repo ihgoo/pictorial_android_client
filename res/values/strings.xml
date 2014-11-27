@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">鲁小妹写真</string>
+    <string name="header_hint_refresh_normal">下拉加载前一页</string>
+    <string name="header_hint_refresh_ready">松手加载前一页</string>
+    <string name="header_hint_refresh_loading">加载中</string>
+    <string name="footer_hint_load_normal">点击加载下一页</string>
+    <string name="footer_hint_load_ready">松手加载下一页</string>
+    <string name="hint_subject">主题</string>
+    <string name="title_settings">设置</string>
+    <string name="title_network_settings">网络设置</string>
+    <string name="pref_category_ui">UI</string>
+    <string name="pref_category_general">其他</string>
+    <string name="pref_title_load_img_method">加载图片网络方式</string>
+    <string name="pref_title_prefetch">图片预加载</string>
+    <string name="pref_title_encode_utf8">使用UTF8编码</string>
+    <string name="pref_title_big_optimization">大屏优化</string>
+    <string name="pref_post_imagesize_adjust_title">图片大小调整</string>
+    <string name="pref_title_about">关于我们</string>
+    <string name="pref_clean_cache">清空图片缓存</string>
+    <string name="favorites">收藏</string>
+    <string name="share">分享</string>
+    <string name="topic">评论</string>
+    
+        <string name="action_settings">Settings</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    
+    <string name="ptr_pull_to_refresh"></string>
+    <string name="ptr_release_to_refresh">松开刷新</string>
+    <string name="ptr_loading">加载中</string>
+    <string name="ptr_last_updated">Updated: %1$s</string>   
+
+</resources>

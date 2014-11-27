@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/ptr_progressbar_indeterminate_1" />
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/ptr_progressbar_indeterminate_2" />
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/ptr_progressbar_indeterminate_3" />
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/ptr_progressbar_indeterminate_4" />
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/ptr_progressbar_indeterminate_5" />
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/ptr_progressbar_indeterminate_6" />
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/ptr_progressbar_indeterminate_7" />
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/ptr_progressbar_indeterminate_8" />
+</animation-list>

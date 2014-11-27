@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="config_loading_animation_frame_time">60</integer>
+</resources>
