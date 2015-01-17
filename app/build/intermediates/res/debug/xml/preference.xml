@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/title_network_settings" >
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/pref_network_method"
+            android:entryValues="@array/pref_network_method"
+            android:key="PERF_SECNETWORKMETHOD"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:title="@string/pref_title_load_img_method" />
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="PERF_PREFETCH"
+            android:title="@string/pref_title_prefetch" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_category_ui" >
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="PERF_BIG_OPTIMIZATION"
+            android:title="@string/pref_title_big_optimization" />
+
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_category_general" >
+        <Preference
+            android:key="PERF_CLEAN_CACHE"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/pref_clean_cache" />
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="PERF_ENCODEUTF8"
+            android:title="@string/pref_title_encode_utf8" />
+
+        <com.ihgoo.rosi.ui.AboutDialogPreference
+            android:title="@string/pref_title_about" />
+    </PreferenceCategory>
+
+</PreferenceScreen><!-- From: file:/Users/kelvin/Downloads/androidannotations-develop/examples/rosi/app/src/main/res/xml/preference.xml -->

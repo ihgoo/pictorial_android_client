@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/kelvin/Downloads/androidannotations-develop/examples/rosi/app/src/main/assets"><file name="html/about.html" path="/Users/kelvin/Downloads/androidannotations-develop/examples/rosi/app/src/main/assets/html/about.html"/></source></dataSet><dataSet config="debug"><source path="/Users/kelvin/Downloads/androidannotations-develop/examples/rosi/app/src/debug/assets"/></dataSet></merger>

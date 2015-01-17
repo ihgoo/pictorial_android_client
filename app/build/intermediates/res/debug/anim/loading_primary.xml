@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/loading_primary_00_dark" />
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/loading_primary_01_dark" />
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/loading_primary_02_dark" />
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/loading_primary_03_dark" />
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/loading_primary_04_dark" />
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/loading_primary_05_dark" />
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/loading_primary_06_dark" />
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/loading_primary_07_dark" />
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/loading_primary_08_dark" />
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/loading_primary_09_dark" />
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/loading_primary_10_dark" />
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/loading_primary_11_dark" />
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/loading_primary_12_dark" />
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/loading_primary_13_dark" />
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/loading_primary_14_dark" />
+    <item android:duration="@integer/config_loading_animation_frame_time" android:drawable="@drawable/loading_primary_15_dark" />
+</animation-list><!-- From: file:/Users/kelvin/Downloads/androidannotations-develop/examples/rosi/app/src/main/res/anim/loading_primary.xml -->

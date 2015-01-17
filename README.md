@@ -2,14 +2,17 @@ Rosi_android_client
 ===================
 
 
-#####Rosi_android客户端，依赖众多开源类库
+Rosi_Android客户端，依赖众多开源类库
+----
 - PhotoView
 - Jsoup
 - PhotoView
 - MultiColumnListView
 
-##### 目前已知问题
-1. Fragment回退栈处理问题
+
+目前已知问题
+----
+
 
 
 License
