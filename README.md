@@ -2,7 +2,7 @@ Rosi_android_client
 ===================
 
 
-Rosi_Android客户端，依赖众多开源类库
+Rosi_Android客户端，依赖众多开源库
 ----
 - PhotoView
 - Jsoup
@@ -12,7 +12,10 @@ Rosi_Android客户端，依赖众多开源类库
 
 目前已知问题
 ----
-
+- 夜晚模式drawer颜色适配问题
+- 启动actionbar标题闪烁
+- 无图片时，应加载一张默认图片占位
+- fragment回退栈有问题
 
 
 License
