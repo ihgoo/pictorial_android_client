@@ -10,6 +10,7 @@ import android.content.Loader;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -40,6 +41,12 @@ public class ContentFragment extends Fragment {
 	@InjectView(R.id.list)
 	MultiColumnListView waterfallView;//可以把它当成一个listView
 
+
+
+    @InjectView(R.id.swipeLayout)
+    SwipeRefreshLayout swipeLayout;
+
+
 //	@ViewInject(R.id.loading)
 //	private LinearLayout loading;
 	// Hashmap新结构
@@ -56,7 +63,9 @@ public class ContentFragment extends Fragment {
 	private List<ImageBean> mImageBeans;
 	private boolean isReadMore = false;
 	private String mPage;
-	
+
+
+
 	
 	private WaterfallAdapter adapter;
 	public WaterfallSimpleAdapter madapter;

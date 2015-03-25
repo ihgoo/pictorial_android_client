@@ -6,14 +6,20 @@
     android:layout_height="match_parent"
     android:id="@+id/mainLayout">
 
-    <com.huewu.pla.lib.MultiColumnListView
-        xmlns:pla="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-    </com.huewu.pla.lib.MultiColumnListView>
 
-	
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.huewu.pla.lib.MultiColumnListView
+            xmlns:pla="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </com.huewu.pla.lib.MultiColumnListView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 	
 </LinearLayout>
