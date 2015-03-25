@@ -6,3 +6,4 @@ public interface API {
 	public String URL_PAGE = BASE + "/page/";
 
 }
+

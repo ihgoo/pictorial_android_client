@@ -22,9 +22,6 @@ import com.ihgoo.rosi.ui.ContentFragment;
 import com.ihgoo.rosi.ui.MenuFragment;
 import com.ihgoo.rosi.ui.Theme;
 import com.ihgoo.rosi.utils.ToastUtil;
-import com.umeng.analytics.MobclickAgent;
-
-import net.youmi.android.AdManager;
 
 public class MainActivity extends Activity {
 
@@ -54,15 +51,9 @@ public class MainActivity extends Activity {
 
 		SettingHelper.getInstance().init(this);
 
-		// init AD
-		AdManager.getInstance(this).init("ac1e4ac779a3a292", "7d1590fe98d483d6", false);
-		AdManager.getInstance(this).setUserDataCollect(true);
 
 		// SpotManager.getInstance(this).checkPermission(this);
 
-		// init umeng
-		MobclickAgent.updateOnlineConfig(this);
-		MobclickAgent.setDebugMode(true);
 
 		setContentView(R.layout.activity_main);
 
@@ -253,14 +244,10 @@ public class MainActivity extends Activity {
 
 	public void onResume() {
 		super.onResume();
-		MobclickAgent.onPageStart("SplashScreen"); // 统计页面
-		MobclickAgent.onResume(this);
 	}
 
 	public void onPause() {
 		super.onPause();
-		MobclickAgent.onPause(this);
-		MobclickAgent.onPageEnd("SplashScreen");
 	}
 
 }

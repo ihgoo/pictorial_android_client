@@ -31,14 +31,15 @@ import com.ihgoo.rosi.bean.ImageListBean;
 import com.ihgoo.rosi.bean.ImageSimpleBean;
 import com.ihgoo.rosi.net.ImageDetailListLoader;
 import com.ihgoo.rosi.net.ImageListLoader;
-import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
-import com.umeng.analytics.MobclickAgent;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 public class ContentFragment extends Fragment {
 	
-	@ViewInject(R.id.list)
-	private MultiColumnListView waterfallView;//可以把它当成一个listView
+	@InjectView(R.id.list)
+	MultiColumnListView waterfallView;//可以把它当成一个listView
+
 //	@ViewInject(R.id.loading)
 //	private LinearLayout loading;
 	// Hashmap新结构
@@ -89,25 +90,13 @@ public class ContentFragment extends Fragment {
 	
 	
 	
-	public void onResume() {
-	    super.onResume();
-	    MobclickAgent.onPageStart("ContentFragment"); //统计页面
-	}
-	public void onPause() {
-	    super.onPause();
-	    MobclickAgent.onPageEnd("ContentFragment"); 
-	}
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
 		setHasOptionsMenu(true);
-		
 		Bundle bundle = this.getArguments();
 		int mode = swithMode(bundle);
-		
-		
+
 		
 		switch (mode) {
 		case MODE_IMAGEDETAILLIST:
@@ -205,10 +194,7 @@ public class ContentFragment extends Fragment {
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		
 		refresh();
-		
-			    
 	    switch (mode) {
 		case MODE_IMAGEDETAILLIST:
 			break;
@@ -216,7 +202,6 @@ public class ContentFragment extends Fragment {
 			View view = View.inflate(getActivity(), R.layout.loading, null);
 			waterfallView.addFooterView(view);
 			waterfallView.setAdapter(adapter);
-			
 			break;
 	    }
 			    
@@ -239,8 +224,7 @@ public class ContentFragment extends Fragment {
 				e.printStackTrace();
 			}
 		}
-		
-		ViewUtils.inject(this, view);
+        ButterKnife.inject(this,view);
 		return view;
 	}
 	

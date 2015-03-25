@@ -85,25 +85,12 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 22 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="umeng_social_sdk" level="project" />
-    <orderEntry type="library" exported="" name="YoumiSdk_Normal_v4.10_2014-09-11" level="project" />
     <orderEntry type="library" exported="" name="support-v4-22.0.0" level="project" />
-    <orderEntry type="library" exported="" name="SocialSDK_QQZone_1" level="project" />
-    <orderEntry type="library" exported="" name="jsoup-1.7.3" level="project" />
-    <orderEntry type="library" exported="" name="SocialSDK_QQZone_2" level="project" />
-    <orderEntry type="library" exported="" name="SocialSDK_QQZone_3" level="project" />
-    <orderEntry type="library" exported="" name="SocialSDK_like" level="project" />
-    <orderEntry type="library" exported="" name="httpmime-4.1.3" level="project" />
-    <orderEntry type="library" exported="" name="umeng-analytics-v5.2.4" level="project" />
-    <orderEntry type="library" exported="" name="SocialSDK_WeiXin_2" level="project" />
-    <orderEntry type="library" exported="" name="SocialSDK_WeiXin_1" level="project" />
-    <orderEntry type="library" exported="" name="SDKIntegration" level="project" />
-    <orderEntry type="library" exported="" name="universal-image-loader-1.8.6" level="project" />
-    <orderEntry type="library" exported="" name="SocialSDK_Sina" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-22.0.0" level="project" />
-    <orderEntry type="library" exported="" name="xUtils-2.6.11" level="project" />
     <orderEntry type="library" exported="" name="volley" level="project" />
-    <orderEntry type="library" exported="" name="SocialSDK_comment" level="project" />
+    <orderEntry type="library" exported="" name="jsoup-1.8.1" level="project" />
+    <orderEntry type="library" exported="" name="universal-image-loader-1.9.3" level="project" />
+    <orderEntry type="library" exported="" name="butterknife-6.1.0" level="project" />
   </component>
 </module>
 

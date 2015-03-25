@@ -21,8 +21,6 @@
         <item>@color/darkblue</item>
         <item>@color/darkpurple</item>
         <item>@color/darkgreen</item>
-        <item>@color/darkorange</item>
-        <item>@color/darkred</item>
     </array>
 
     <string-array name="pref_network_method">

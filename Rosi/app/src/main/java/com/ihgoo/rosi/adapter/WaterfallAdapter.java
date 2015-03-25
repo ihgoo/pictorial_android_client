@@ -1,9 +1,6 @@
 package com.ihgoo.rosi.adapter;
 
 
-import java.io.File;
-import java.util.List;
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
@@ -20,7 +17,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.android.volley.toolbox.Volley;
 import com.ihgoo.rosi.MainActivity;
 import com.ihgoo.rosi.R;
 import com.ihgoo.rosi.bean.ImageBean;
@@ -28,12 +24,11 @@ import com.ihgoo.rosi.bean.ImageListBean;
 import com.ihgoo.rosi.bean.SettingHelper;
 import com.ihgoo.rosi.net.ImageLoaderHelper;
 import com.ihgoo.rosi.ui.ContentFragment;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.DiscCacheUtil;
 import com.nostra13.universalimageloader.core.assist.FailReason;
-import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
-import com.nostra13.universalimageloader.core.assist.MemoryCacheUtil;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+
+import java.util.List;
 
 
 public class WaterfallAdapter extends ArrayAdapter<ImageBean> {

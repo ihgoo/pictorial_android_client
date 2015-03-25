@@ -1,23 +1,20 @@
 package com.ihgoo.rosi.adapter;
 
-import java.util.List;
+import android.content.Context;
+import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.ihgoo.rosi.R;
 import com.ihgoo.rosi.bean.ImageBean;
 import com.ihgoo.rosi.bean.ImageSimpleBean;
 import com.ihgoo.rosi.net.LargeImageAsync;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.FailReason;
-import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
+
+import java.util.List;
 
 import uk.co.senab.photoview.PhotoView;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout.LayoutParams;
 
 public class PagerAdapter extends android.support.v4.view.PagerAdapter {
 
@@ -56,7 +53,7 @@ public class PagerAdapter extends android.support.v4.view.PagerAdapter {
 			protected void onPostExecute(ImageBean result) {
 				String imgurl = result.getImgurl();
 
-				ImageLoader.getInstance().displayImage(imgurl, photoView,new LoadingListener());
+				ImageLoader.getInstance().displayImage(imgurl, photoView);
 			}
 		}.execute();
 		
@@ -80,27 +77,4 @@ public class PagerAdapter extends android.support.v4.view.PagerAdapter {
 	}
 	
 	
-	private class LoadingListener implements ImageLoadingListener{
-
-		@Override
-		public void onLoadingCancelled(String arg0, View arg1) {
-//			loading.setVisibility(View.GONE);
-		}
-
-		@Override
-		public void onLoadingComplete(String arg0, View arg1, Bitmap arg2) {
-//			loading.setVisibility(View.GONE);
-		}
-
-		@Override
-		public void onLoadingFailed(String arg0, View arg1, FailReason arg2) {
-//			loading.setVisibility(View.GONE);
-		}
-
-		@Override
-		public void onLoadingStarted(String arg0, View arg1) {
-//			loading.setVisibility(View.VISIBLE);
-		}
-		
-	}
 }

@@ -1,10 +1,10 @@
 package com.ihgoo.rosi.net;
 
+import android.content.Context;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-
-import android.content.Context;
 
 /**
  * volley帮助类
@@ -16,9 +16,6 @@ public class VolleyHelper {
 	private Context mContext;
 	private RequestQueue mQueue;
 	
-	
-	
-
 	public RequestQueue getQueue() {
 		return mQueue;
 	}

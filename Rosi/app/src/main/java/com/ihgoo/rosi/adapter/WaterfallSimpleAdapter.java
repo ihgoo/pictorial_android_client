@@ -1,9 +1,6 @@
 package com.ihgoo.rosi.adapter;
 
 
-import java.io.Serializable;
-import java.util.List;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -23,11 +20,13 @@ import com.ihgoo.rosi.MainActivity;
 import com.ihgoo.rosi.R;
 import com.ihgoo.rosi.bean.ImageSimpleBean;
 import com.ihgoo.rosi.net.ImageLoaderHelper;
-import com.ihgoo.rosi.ui.DetailActivity;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.ihgoo.rosi.ui.PhotoDetailActivity;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
-import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+
+import java.io.Serializable;
+import java.util.List;
 
 
 public class WaterfallSimpleAdapter extends BaseAdapter {
@@ -163,7 +162,7 @@ public class WaterfallSimpleAdapter extends BaseAdapter {
 				Intent intent = new Intent();
 				intent.putExtra("info",(Serializable)list);
 				intent.putExtra("url", mUrl);
-				intent.setClass(mContext, DetailActivity.class);
+				intent.setClass(mContext, PhotoDetailActivity.class);
 				mContext.startActivity(intent);
 				Log.i("TAG", "image click");
 			}
