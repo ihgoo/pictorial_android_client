@@ -30,6 +30,8 @@ public class BaseApplication extends Application {
                 .imageScaleType(ImageScaleType.EXACTLY) //default
                 .cacheInMemory(true)
                 .cacheOnDisk(true)
+                .showImageForEmptyUri(R.drawable.load_default)
+                .showImageOnFail(R.drawable.load_default)
                 .build();
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
                 .memoryCache(new WeakMemoryCache())
