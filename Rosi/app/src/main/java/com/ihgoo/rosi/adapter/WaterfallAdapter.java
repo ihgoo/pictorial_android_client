@@ -85,8 +85,7 @@ public class WaterfallAdapter extends ArrayAdapter<ImageBean> {
 	public View getView(final int position, View view, ViewGroup group) {
 		final Holder holder;
 		
-		// 下拉刷新回调接口监听事件
-		if (mOnBottonListener != null) {  
+		if (mOnBottonListener != null) {
 			int addPosition =0;
 			if (SettingHelper.getInstance().isPrfetch()) {
 				addPosition = position+9;
@@ -102,8 +101,6 @@ public class WaterfallAdapter extends ArrayAdapter<ImageBean> {
 		
 		final ImageBean imageBean = list.get(position);
 		
-		
-		// 得到View
 		if (view == null) {
 			holder = new Holder();
 			LayoutInflater inflater = LayoutInflater.from(mContext);
@@ -114,13 +111,6 @@ public class WaterfallAdapter extends ArrayAdapter<ImageBean> {
 		} else {
 			holder = (Holder) view.getTag();
 		}
-		
-		
-		
-		
-		
-		
-		
 
 		
 		holder.ivIcon.setOnClickListener(new OnClickListener() {
@@ -131,11 +121,7 @@ public class WaterfallAdapter extends ArrayAdapter<ImageBean> {
 				bundle.putInt("mode", ContentFragment.MODE_IMAGEDETAILLIST);
 				bundle.putString("url", imageBean.getDetailurl());
 				fragment.setArguments(bundle);
-				
-				
 				((MainActivity)mContext).addFragment(fragment);
-				
-				
 			}
 		});
 		
@@ -146,17 +132,8 @@ public class WaterfallAdapter extends ArrayAdapter<ImageBean> {
 		
 				@Override
 				public void onLoadingStarted(String imageUri, View view) {
-					
-		        	// 这儿初先初始化出来image所占的位置的大小，先把瀑布流固定住，这样瀑布流就不会因为图片加载出来后大小变化了
-					LayoutParams lp = (LayoutParams) holder.ivIcon.getLayoutParams();
-		
-					// 屏幕适配缩放比例
-					float scale = mScreenWidth/2/Integer.parseInt(imageBean.getWidth());
-					lp.width = mScreenWidth/2;
-					lp.height = (int) (Integer.parseInt(imageBean.getHeight())*scale);
 					holder.ivIcon.setImageDrawable(drawable);
 					holder.pbLoad.setVisibility(View.VISIBLE);
-					
 				}
 		
 				@Override
@@ -194,9 +171,17 @@ public class WaterfallAdapter extends ArrayAdapter<ImageBean> {
 						holder.pbLoad.setVisibility(View.GONE);
 						holder.url = imageUri;
 					}
-					
-					
-				}
+
+                    int height = loadedImage.getHeight();
+                    int width = loadedImage.getWidth();
+                    double scale =(double) (mScreenWidth/2)/width;
+                    int currentWidth = (int)(width * scale);
+                    int currentHeight =  (int)(height * scale);
+                    LayoutParams lp = (LayoutParams) view.getLayoutParams();
+                    lp.width = currentWidth;
+                    lp.height = currentHeight;
+                    view.setLayoutParams(lp);
+                }
 				
 				
 				

@@ -69,11 +69,7 @@ public class WaterfallSimpleAdapter extends BaseAdapter {
 	public View getView(final int position, View view, ViewGroup group) {
 		final Holder holder;
 		final ImageSimpleBean imageSimpleBean = list.get(position);
-		
-		
-		
-		
-		// 得到View
+
 		if (view == null) {
 			holder = new Holder();
 			LayoutInflater inflater = LayoutInflater.from(mContext);
@@ -94,21 +90,6 @@ public class WaterfallSimpleAdapter extends BaseAdapter {
 				new ImageLoadingListener() {
 					@Override
 					public void onLoadingStarted(String imageUri, View view) {
-//						System.out.println(imageUri);
-//						
-//						int startIndex = StringUtils.lastIndexOf(imageUri, ".jpg");
-//						int lastIndex = StringUtils.lastIndexOf(imageUri, "-");
-//						
-//						StringUtils.substring(imageUri, startIndex, lastIndex);
-						
-						
-						// 这儿初先初始化出来图片所占的位置的大小，先把图片固定住，这样就不会因为图片加载出来后大小变化了
-						LayoutParams lp = (LayoutParams) holder.ivIcon.getLayoutParams();
-						// 屏幕适配缩放比例
-						float scale = 1.0f;
-						lp.width = mScreenWidth / 2;
-						lp.height = (int) (Integer.parseInt(imageSimpleBean.getHeight())*scale);
-						
 						holder.ivIcon.setImageDrawable(drawable);
 						holder.pbLoad.setVisibility(View.VISIBLE);
 					}
@@ -144,7 +125,20 @@ public class WaterfallSimpleAdapter extends BaseAdapter {
 					@Override
 					public void onLoadingComplete(String imageUri, View view,
 							Bitmap loadedImage) {
-						holder.pbLoad.setVisibility(View.GONE);
+
+                        int height = loadedImage.getHeight();
+                        int width = loadedImage.getWidth();
+                        double scale =(double) (mScreenWidth/2)/width;
+                        int currentWidth = (int)(width * scale);
+                        int currentHeight =  (int)(height * scale);
+                        LayoutParams lp = (LayoutParams) view.getLayoutParams();
+                        lp.width = currentWidth;
+                        lp.height = currentHeight;
+                        view.setLayoutParams(lp);
+
+
+                        holder.pbLoad.setVisibility(View.GONE);
+
 					}
 
 					@Override
