@@ -15,12 +15,12 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.ihgoo.rosi.MainActivity;
+import com.ihgoo.rosi.ui.CoverFragment;
+import com.ihgoo.rosi.ui.MainPageActivity;
 import com.ihgoo.rosi.R;
 import com.ihgoo.rosi.bean.ImageBean;
 import com.ihgoo.rosi.bean.ImageListBean;
 import com.ihgoo.rosi.bean.SettingHelper;
-import com.ihgoo.rosi.ui.ContentFragment;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
@@ -54,7 +54,7 @@ public class WaterfallAdapter extends ArrayAdapter<ImageBean> {
         super(context, resource, list);
         this.list = list;
         this.mContext = context;
-        mScreenWidth = ((MainActivity) mContext).screenWidth;
+        mScreenWidth = ((MainPageActivity) mContext).screenWidth;
     }
 
 
@@ -90,7 +90,7 @@ public class WaterfallAdapter extends ArrayAdapter<ImageBean> {
 
         if (view == null) {
             LayoutInflater inflater = LayoutInflater.from(mContext);
-            view = inflater.inflate(R.layout.image_item, null);
+            view = inflater.inflate(R.layout.image_waterfall_item, null);
         }
 
 
@@ -98,12 +98,12 @@ public class WaterfallAdapter extends ArrayAdapter<ImageBean> {
         viewHolder.rowIcon.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                ContentFragment fragment = new ContentFragment();
+                CoverFragment fragment = new CoverFragment();
                 Bundle bundle = new Bundle();
-                bundle.putInt("mode", ContentFragment.MODE_IMAGEDETAILLIST);
+                bundle.putInt("mode", CoverFragment.MODE_IMAGEDETAILLIST);
                 bundle.putString("url", imageBean.getDetailurl());
                 fragment.setArguments(bundle);
-                ((MainActivity) mContext).addFragment(fragment);
+                ((MainPageActivity) mContext).addFragment(fragment);
             }
         });
 

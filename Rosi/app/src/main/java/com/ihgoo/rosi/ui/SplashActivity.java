@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
 
-import com.ihgoo.rosi.MainActivity;
 import com.ihgoo.rosi.R;
 
 /**
@@ -31,8 +30,6 @@ public class SplashActivity extends Activity {
 
         DisplayMetrics metric = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metric);
-//        SettingsV2.set("density", metric.density);
-//        SettingsV2.set("windowWidth", metric.widthPixels);
 
         mView = new ImageView(this);
         mView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
@@ -50,7 +47,7 @@ public class SplashActivity extends Activity {
 
         new Handler().postDelayed(new Runnable() {
             public void run() {
-                mainIntent = new Intent(SplashActivity.this,MainActivity.class);
+                mainIntent = new Intent(SplashActivity.this,MainPageActivity.class);
                 SplashActivity.this.startActivity(mainIntent);
                 SplashActivity.this.overridePendingTransition(R.anim.zoomin,
                         R.anim.zoomout);

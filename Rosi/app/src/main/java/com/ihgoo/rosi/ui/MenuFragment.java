@@ -12,9 +12,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.ihgoo.rosi.MainActivity;
 import com.ihgoo.rosi.R;
 import com.ihgoo.rosi.adapter.LeftAdapter;
+import com.ihgoo.rosi.utils.Theme;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -46,50 +46,50 @@ public class MenuFragment extends Fragment {
         switch (paramInt) {
 
             case 0:
-                ((MainActivity) getActivity()).cleanStack();
-                ContentFragment contentFragment0 = new ContentFragment();
+                ((MainPageActivity) getActivity()).cleanStack();
+                CoverFragment contentFragment0 = new CoverFragment();
                 Bundle bundle0 = new Bundle();
-                bundle0.putInt("mode", ContentFragment.MODE_IMAGELIST);
+                bundle0.putInt("mode", CoverFragment.MODE_IMAGELIST);
                 bundle0.putString("url", "http://www.dirosi.com/page/");
                 bundle0.putString("page", "1");
 
                 contentFragment0.setArguments(bundle0);
-                ((MainActivity) getActivity()).switchFragment(contentFragment0);
+                ((MainPageActivity) getActivity()).switchFragment(contentFragment0);
                 break;
 
 
             case 1:
-                ((MainActivity) getActivity()).cleanStack();
-                ContentFragment contentFragment = new ContentFragment();
+                ((MainPageActivity) getActivity()).cleanStack();
+                CoverFragment contentFragment = new CoverFragment();
                 Bundle bundle = new Bundle();
-                bundle.putInt("mode", ContentFragment.MODE_IMAGELIST);
+                bundle.putInt("mode", CoverFragment.MODE_IMAGELIST);
                 bundle.putString("url", "http://www.dirosi.com/category/rosi/page/");
                 bundle.putString("page", "1");
 
                 contentFragment.setArguments(bundle);
-                ((MainActivity) getActivity()).switchFragment(contentFragment);
+                ((MainPageActivity) getActivity()).switchFragment(contentFragment);
                 break;
             case 2:
-                ((MainActivity) getActivity()).cleanStack();
-                ContentFragment contentFragment1 = new ContentFragment();
+                ((MainPageActivity) getActivity()).cleanStack();
+                CoverFragment contentFragment1 = new CoverFragment();
                 Bundle bundle1 = new Bundle();
-                bundle1.putInt("mode", ContentFragment.MODE_IMAGELIST);
+                bundle1.putInt("mode", CoverFragment.MODE_IMAGELIST);
                 bundle1.putString("url", "http://www.dirosi.com/category/disi/page/");
                 bundle1.putString("page", "1");
 
                 contentFragment1.setArguments(bundle1);
-                ((MainActivity) getActivity()).switchFragment(contentFragment1);
+                ((MainPageActivity) getActivity()).switchFragment(contentFragment1);
                 break;
             case 3:
-                ((MainActivity) getActivity()).cleanStack();
-                ContentFragment contentFragment2 = new ContentFragment();
+                ((MainPageActivity) getActivity()).cleanStack();
+                CoverFragment contentFragment2 = new CoverFragment();
                 Bundle bundle2 = new Bundle();
-                bundle2.putInt("mode", ContentFragment.MODE_IMAGELIST);
+                bundle2.putInt("mode", CoverFragment.MODE_IMAGELIST);
                 bundle2.putString("url", "http://www.dirosi.com/category/disi/page/");
                 bundle2.putString("page", "1");
 
                 contentFragment2.setArguments(bundle2);
-                ((MainActivity) getActivity()).switchFragment(contentFragment2);
+                ((MainPageActivity) getActivity()).switchFragment(contentFragment2);
                 break;
             case 4:
                 Toast.makeText(getActivity(), "敬请期待...", 100).show();
@@ -99,8 +99,8 @@ public class MenuFragment extends Fragment {
                 break;
             case 6:
 //			((MainActivity)getActivity()).switchFragment(new SettingFragment());
-                ((MainActivity) getActivity()).addFragment(new SettingFragment());
-                ((MainActivity) getActivity()).toggle();
+                ((MainPageActivity) getActivity()).addFragment(new SettingFragment());
+                ((MainPageActivity) getActivity()).toggle();
                 break;
             case 7:
 

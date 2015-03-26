@@ -1,9 +1,5 @@
 package com.ihgoo.rosi.ui;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.LoaderManager;
 import android.content.Loader;
@@ -14,15 +10,10 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.huewu.pla.lib.MultiColumnListView;
-import com.ihgoo.rosi.MainActivity;
 import com.ihgoo.rosi.R;
 import com.ihgoo.rosi.adapter.WaterfallAdapter;
 import com.ihgoo.rosi.adapter.WaterfallAdapter.OnBottonListener;
@@ -33,23 +24,21 @@ import com.ihgoo.rosi.bean.ImageSimpleBean;
 import com.ihgoo.rosi.net.ImageDetailListLoader;
 import com.ihgoo.rosi.net.ImageListLoader;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class ContentFragment extends Fragment {
+public class CoverFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 	
 	@InjectView(R.id.list)
 	MultiColumnListView waterfallView;//可以把它当成一个listView
-
-
 
     @InjectView(R.id.swipeLayout)
     SwipeRefreshLayout swipeLayout;
 
 
-//	@ViewInject(R.id.loading)
-//	private LinearLayout loading;
-	// Hashmap新结构
 	private SparseArray<ImageListBean> mCache = new SparseArray();
 	private ImageListLoaderCallbacks mImageListLoaderCallbacks;
 	private ImageDetailListLoaderCallbacks mImageDetailListLoaderCallbacks;
@@ -89,14 +78,11 @@ public class ContentFragment extends Fragment {
 //				loading.setVisibility(View.GONE);
 				break;
 			}
-			
-			
-			
 		}
 		
 	};
-	
-	
+
+
 	
 	
 	@Override
@@ -120,7 +106,6 @@ public class ContentFragment extends Fragment {
 				
 				@Override
 				public void loadMore() {
-					
 					if (!isReadMore) {
 						isReadMore = true;
 						Log.i("ContentFragment", "滚到底部了......第"+mPage+"页");
@@ -148,11 +133,6 @@ public class ContentFragment extends Fragment {
 	    getLoaderManager().restartLoader(0, localBundle1, mImageListLoaderCallbacks).forceLoad();
 	}
 	
-	/**
-	 * 选择模式
-	 * @param bundle
-	 * @return
-	 */
 	private int swithMode(Bundle bundle){
 		if (bundle!=null) {
 			mode =  bundle.getInt("mode");
@@ -172,37 +152,12 @@ public class ContentFragment extends Fragment {
 	}
 	
 
-	@Override
-	public void onCreateOptionsMenu(Menu paramMenu, MenuInflater paramMenuInflater){
-	    paramMenu.clear();
-	    paramMenuInflater.inflate(R.xml.actionbar_main, paramMenu);
-	    getActivity().getActionBar().setNavigationMode(0);
-	    getActivity().getActionBar().setTitle("");
-	    getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
-	    super.onCreateOptionsMenu(paramMenu, paramMenuInflater);
-	}
-	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.action_refresh:
-			Toast.makeText(getActivity(), "刷新中...", 200).show();
-			refresh();
-			break;
-			
-		default:
-			((MainActivity)getActivity()).toggle();
-			break;
 
-		}
-		
-		return super.onOptionsItemSelected(item);
-	}
-	
-	
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
+        swipeLayout.setOnRefreshListener(this);
+        swipeLayout.setColorSchemeResources(R.color.blue);
 		refresh();
 	    switch (mode) {
 		case MODE_IMAGEDETAILLIST:
@@ -213,7 +168,6 @@ public class ContentFragment extends Fragment {
 			waterfallView.setAdapter(adapter);
 			break;
 	    }
-			    
 	}
 	
 	@Override
@@ -237,9 +191,6 @@ public class ContentFragment extends Fragment {
 		return view;
 	}
 	
-	/**
-	 * 刷新
-	 */
 	public void refresh(){
 		switch (mode) {
 		case MODE_IMAGEDETAILLIST:
@@ -250,9 +201,14 @@ public class ContentFragment extends Fragment {
 			break;
 		}
 	}
-	
-	
-	public class ImageListLoaderCallbacks implements
+
+    @Override
+    public void onRefresh() {
+        refresh();
+    }
+
+
+    public class ImageListLoaderCallbacks implements
 			LoaderManager.LoaderCallbacks<ImageListBean> {
 
 		@Override
@@ -263,6 +219,7 @@ public class ContentFragment extends Fragment {
 		@Override
 		public void onLoadFinished(Loader<ImageListBean> arg0,
 				ImageListBean imageBeans) {
+            swipeLayout.setRefreshing(false);
 			mCache.put(Integer.parseInt(mPage) , imageBeans);
 			adapter.addAll(mCache.get(Integer.parseInt(mPage)).getAll());
 			adapter.notifyDataSetChanged();
@@ -272,8 +229,7 @@ public class ContentFragment extends Fragment {
 		@Override
 		public void onLoaderReset(Loader<ImageListBean> arg0) {
 		}
-		
-	
+
 	}
 	
 	
@@ -293,7 +249,6 @@ public class ContentFragment extends Fragment {
 			mUrlList = urList;
 			madapter = new WaterfallSimpleAdapter(mUrlList, getActivity(),mUrl);
 			waterfallView.setAdapter(madapter);
-			
 		}
 
 		@Override

@@ -33,6 +33,16 @@
         
     </style>
 
+    <!-- 默认主题 -->
+    <style name="defaultTheme" parent="android:Theme.Holo">
+        <item name="android:windowContentOverlay">@drawable/window_title_shadow</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:background">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
     <style name="ActionBar.Solid.Mystyle" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
         <item name="android:background">@drawable/ab_solid_mystyle</item>
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_mystyle</item>

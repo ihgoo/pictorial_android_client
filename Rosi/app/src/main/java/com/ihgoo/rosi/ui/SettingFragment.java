@@ -11,7 +11,6 @@ import android.preference.SwitchPreference;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.ihgoo.rosi.MainActivity;
 import com.ihgoo.rosi.R;
 import com.ihgoo.rosi.utils.DataCleanManager;
 
@@ -87,7 +86,7 @@ public class SettingFragment extends PreferenceFragment implements OnPreferenceC
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		default:
-			((MainActivity)getActivity()).toggle();
+			((MainPageActivity)getActivity()).toggle();
 			break;
 
 		}

@@ -1,4 +1,4 @@
-package com.ihgoo.rosi.ui;
+package com.ihgoo.rosi.utils;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -30,8 +30,6 @@ public class Theme {
 		}else{
 			activity.setTheme(R.style.Theme_Mystyle);
 		}
-		
-		
 	}
 
 }

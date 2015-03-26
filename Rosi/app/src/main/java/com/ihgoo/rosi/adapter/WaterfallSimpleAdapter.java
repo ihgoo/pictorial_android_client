@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.ihgoo.rosi.MainActivity;
+import com.ihgoo.rosi.ui.MainPageActivity;
 import com.ihgoo.rosi.R;
 import com.ihgoo.rosi.bean.ImageSimpleBean;
 import com.ihgoo.rosi.ui.PhotoDetailActivity;
@@ -44,7 +44,7 @@ public class WaterfallSimpleAdapter extends BaseAdapter {
         this.list = urls;
         this.mContext = context;
         this.mUrl = url;
-        mScreenWidth = ((MainActivity) mContext).screenWidth;
+        mScreenWidth = ((MainPageActivity) mContext).screenWidth;
         TAG = this.getClass().getSimpleName();
     }
 
@@ -70,7 +70,7 @@ public class WaterfallSimpleAdapter extends BaseAdapter {
 
         if (view == null) {
             LayoutInflater inflater = LayoutInflater.from(mContext);
-            view = inflater.inflate(R.layout.image_item, null);
+            view = inflater.inflate(R.layout.image_waterfall_item, null);
         }
 
         final ViewHolder holder = new ViewHolder(view);

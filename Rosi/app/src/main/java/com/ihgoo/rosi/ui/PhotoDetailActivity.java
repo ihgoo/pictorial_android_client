@@ -22,7 +22,6 @@ import butterknife.InjectView;
  * 图片详情页面
  */
 public class PhotoDetailActivity extends Activity implements OnClickListener {
-
 	
 	@InjectView(R.id.adLayout)
 	RelativeLayout adLayout;
@@ -34,10 +33,10 @@ public class PhotoDetailActivity extends Activity implements OnClickListener {
 	TextView favorites;
 	
 	@InjectView(R.id.share)
-	 TextView share;
+	TextView share;
 	
 	@InjectView(R.id.chat)
-	 TextView chat;
+	TextView chat;
 
 
 	
@@ -47,30 +46,14 @@ public class PhotoDetailActivity extends Activity implements OnClickListener {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		List<ImageSimpleBean> list = (List<ImageSimpleBean>) getIntent().getSerializableExtra("info");
 		String url = getIntent().getStringExtra("url");
-//		mController = initAcitonBar(this,url);
-		
-		
-
-		
 		setContentView(R.layout.layout_detail);
-		
 		ButterKnife.inject(this);
-
 		mViewPager.setAdapter(new PagerAdapter(getApplicationContext(),list,getLayoutInflater()));
-		
 		share.setOnClickListener(this);
 		favorites.setOnClickListener(this);
 		chat.setOnClickListener(this);
-
-		
-		
 	}
 	
-	@Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
 
 //	protected UMSocialService initAcitonBar(Context context,String url
 //			) {

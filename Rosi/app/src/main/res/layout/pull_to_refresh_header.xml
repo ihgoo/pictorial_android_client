@@ -32,7 +32,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="horizontal" >
-
                 <TextView
                     android:id="@+id/ptr_id_loading_text"
                     android:layout_width="wrap_content"

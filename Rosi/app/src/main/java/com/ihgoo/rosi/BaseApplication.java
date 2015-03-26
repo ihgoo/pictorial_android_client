@@ -31,6 +31,7 @@ public class BaseApplication extends Application {
                 .cacheInMemory(true)
                 .cacheOnDisk(true)
                 .showImageForEmptyUri(R.drawable.load_default)
+                .showImageOnLoading(R.drawable.load_default)
                 .showImageOnFail(R.drawable.load_default)
                 .build();
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
