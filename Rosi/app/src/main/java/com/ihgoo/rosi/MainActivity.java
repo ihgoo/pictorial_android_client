@@ -16,7 +16,6 @@ import android.widget.FrameLayout;
 
 import com.ihgoo.rosi.api.API;
 import com.ihgoo.rosi.bean.SettingHelper;
-import com.ihgoo.rosi.net.ImageLoaderHelper;
 import com.ihgoo.rosi.net.VolleyHelper;
 import com.ihgoo.rosi.ui.ContentFragment;
 import com.ihgoo.rosi.ui.MenuFragment;
@@ -51,25 +50,15 @@ public class MainActivity extends Activity {
 
 		SettingHelper.getInstance().init(this);
 
-
-		// SpotManager.getInstance(this).checkPermission(this);
-
-
 		setContentView(R.layout.activity_main);
 
-		// 初始化屏幕数据
 		WindowManager windowManager = getWindowManager();
 		Display display = windowManager.getDefaultDisplay();
 		screenWidth = display.getWidth();
 		screenHeight = display.getHeight();
 
-		// init volley
 		VolleyHelper.getInstance().init(getApplicationContext());
 
-		// init imageloader
-		ImageLoaderHelper.getInstance().init(getApplicationContext());
-
-		// init slidingMenu
 		initView();
 
 		if (savedInstanceState == null) {
