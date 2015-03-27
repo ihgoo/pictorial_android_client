@@ -33,7 +33,6 @@ public class MainPageActivity extends Activity {
 
 
 		SettingHelper.getInstance().init(this);
-
 		setContentView(R.layout.activity_main);
 
 		WindowManager windowManager = getWindowManager();

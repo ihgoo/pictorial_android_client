@@ -19,6 +19,7 @@ Rosi_android_client
 ##目前已知问题
 ----
 - 夜晚模式drawer颜色适配问题
+- 加载下一页图片时候，图片会闪烁刷新
 - ~~启动actionbar标题闪烁~~ fix
 - ~~无图片时，应加载一张默认图片占位~~ fix 
 - ~~fragment回退栈有问题~~ fix

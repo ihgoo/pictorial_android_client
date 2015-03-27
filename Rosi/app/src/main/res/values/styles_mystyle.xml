@@ -34,11 +34,12 @@
     </style>
 
     <!-- 默认主题 -->
-    <style name="defaultTheme" parent="android:Theme.Holo">
+    <style name="defaultTheme" parent="@android:style/Theme.Holo.Light">
         <item name="android:windowContentOverlay">@drawable/window_title_shadow</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:background">@null</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:windowAnimationStyle">@android:style/Animation</item>
         <item name="android:windowNoTitle">true</item>
     </style>
