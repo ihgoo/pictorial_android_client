@@ -10,8 +10,10 @@ Rosi_android_client
 ----
 - PhotoView
 - Jsoup
-- PhotoView
 - MultiColumnListView
+- butterknife
+- universalimageloader
+- Volley
 
 
 ##目前已知问题
