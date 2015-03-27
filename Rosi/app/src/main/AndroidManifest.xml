@@ -58,6 +58,13 @@
             android:windowSoftInputMode="stateHidden" />
 
         <activity
+            android:name=".ui.LoginActivity"
+            android:launchMode="singleTop"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
             android:name="cn.smssdk.SMSSDKUIShell"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"

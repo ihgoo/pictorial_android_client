@@ -1,7 +1,9 @@
 package com.ihgoo.rosi.ui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -11,6 +13,7 @@ import com.ihgoo.rosi.R;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 
 /**
  * Created by ihgoo on 2015/3/27.
@@ -38,6 +41,17 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.inject(this);
+        initView();
+    }
+
+    private void initView() {
+        mainTitile.setText("登录");
+    }
+
+    @OnClick(R.id.bt_register)
+    public void register(View view){
+        Intent intent= new Intent(this,MainPageActivity.class);
+        startActivity(intent);
     }
 
 

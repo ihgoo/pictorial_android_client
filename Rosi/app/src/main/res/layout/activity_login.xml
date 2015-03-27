@@ -93,7 +93,7 @@
     </LinearLayout>
 
     <RelativeLayout
-        android:id="@+id/bt_register"
+        android:id="@+id/bt_login"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginLeft="12dp"

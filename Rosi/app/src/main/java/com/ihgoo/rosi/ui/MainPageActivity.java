@@ -16,7 +16,7 @@ import com.ihgoo.rosi.bean.SettingHelper;
 import com.ihgoo.rosi.net.VolleyHelper;
 import com.ihgoo.rosi.utils.ToastUtil;
 
-public class MainPageActivity extends Activity {
+public class  MainPageActivity extends Activity {
 
 	private DrawerLayout mDrawerLayout;
 	private long mQuit = 0;
