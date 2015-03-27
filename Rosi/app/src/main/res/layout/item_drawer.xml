@@ -25,7 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="8.0dip"
         android:text=""
+        android:textColor="@color/black"
         android:textSize="24.0sp"
-        android:textStyle="bold" />
+        android:textStyle="normal" />
 
 </LinearLayout>

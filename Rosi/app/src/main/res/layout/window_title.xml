@@ -2,7 +2,7 @@
     android:id="@+id/windowTitle"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/blue">
+    android:background="@color/white">
 
     <!-- 左侧按钮 -->
     <ImageView
@@ -12,7 +12,6 @@
         android:src="@drawable/btn_comm_goback_seclect" />
 
     <!-- 中间标题 -->
-
     <TextView
         android:id="@+id/mainTitile"
         style="@style/windowTitle.Tx"
