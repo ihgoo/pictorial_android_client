@@ -179,15 +179,19 @@ public class CoverFragment extends Fragment implements SwipeRefreshLayout.OnRefr
     }
 
     private void initView() {
-        mainTitile.setText("首页");
+        switch (mode) {
+            case MODE_IMAGEDETAILLIST:
+                mainTitile.setText("专辑");
+                break;
+            case MODE_IMAGELIST:
+                mainTitile.setText("首页");
+                break;
+        }
 
 
         waterfallView.setOnScrollListener(this);
         waterfallView.setOnTouchListener(this);
-
-
         View view = new View(getActivity());
-
         int headerHeight = Misc.dip2px(48f);
         PLA_AbsListView.LayoutParams lp = new PLA_AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,headerHeight);
         view.setLayoutParams(lp);
