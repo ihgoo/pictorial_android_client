@@ -110,4 +110,21 @@
             android:textColor="@color/white" />
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/bt_register"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/btn_getcode_seclect"
+        android:layout_marginTop="33dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="注册"
+            android:textColor="@color/white" />
+    </RelativeLayout>
 </LinearLayout>

@@ -22,6 +22,7 @@ import java.util.HashMap;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.SaveListener;
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
@@ -82,28 +83,29 @@ public class RegisterActivity extends Activity {
     void register(View v) {
 
         password = etRePassword.getText().toString().trim();
-        User user = new User();
-        user.setUsn(phone);
+        BmobUser  user = new BmobUser();
+        user.setUsername(phone);
         user.setPassword(password);
-        user.save(this, new SaveListener() {
+        user.signUp(this,new SaveListener() {
             @Override
             public void onSuccess() {
-
                 try {
                     DB snappydb = DBFactory.open(RegisterActivity.this);
                     snappydb.put(NosqlConstant.USN,phone);
                     snappydb.put(NosqlConstant.PASSWORD,password);
+                    snappydb.put(NosqlConstant.IS_FIRST,true);
                 } catch (SnappydbException e) {
                     e.printStackTrace();
                 }
 
                 Intent intent = new Intent(RegisterActivity.this, MainPageActivity.class);
                 startActivity(intent);
+                finish();
             }
 
             @Override
-            public void onFailure(int code, String msg) {
-                ToastUtil.showMediumTime(RegisterActivity.this, "注册失败~");
+            public void onFailure(int i, String s) {
+                    ToastUtil.showMediumTime(RegisterActivity.this, "注册失败~");
             }
         });
     }

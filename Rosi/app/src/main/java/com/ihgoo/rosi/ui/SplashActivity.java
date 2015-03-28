@@ -68,7 +68,6 @@ public class SplashActivity extends Activity {
 
 
                     if (!isFirst){
-
                         Intent mainIntent = new Intent(SplashActivity.this,LoginActivity.class);
                         SplashActivity.this.startActivity(mainIntent);
                         SplashActivity.this.overridePendingTransition(R.anim.zoomin,
@@ -76,8 +75,6 @@ public class SplashActivity extends Activity {
                         SplashActivity.this.overridePendingTransition(
                                 android.R.anim.fade_in, android.R.anim.fade_out);
                         SplashActivity.this.finish();
-
-
                     }else{
 
                         Intent mainIntent = new Intent(SplashActivity.this,MainPageActivity.class);
