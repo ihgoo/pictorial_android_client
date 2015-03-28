@@ -19,7 +19,6 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
             android:adjustViewBounds="true"
             android:clickable="true"
             android:scaleType="centerCrop" />
@@ -37,6 +36,16 @@
 
     </FrameLayout>
 
+    <TextView
+        android:background="@color/white"
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:layout_marginLeft="8dp"
+        android:singleLine="true"
+        android:text="菲儿"
+        android:textColor="@color/dark_gray" />
 
 
 </LinearLayout>

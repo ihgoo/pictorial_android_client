@@ -55,7 +55,6 @@ public class CoverFragment extends Fragment implements SwipeRefreshLayout.OnRefr
     @InjectView(R.id.titlebar)
     RelativeLayout titlebar;
 
-    private SparseArray<ImageListBean> mCache = new SparseArray();
     private ImageListLoaderCallbacks mImageListLoaderCallbacks;
     private ImageDetailListLoaderCallbacks mImageDetailListLoaderCallbacks;
     public static int mode = 0;
@@ -95,6 +94,8 @@ public class CoverFragment extends Fragment implements SwipeRefreshLayout.OnRefr
     };
 
 
+    List<ImageBean> imageBeanList =  new ArrayList<ImageBean>();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,7 +112,7 @@ public class CoverFragment extends Fragment implements SwipeRefreshLayout.OnRefr
             case MODE_IMAGELIST:
                 mImageListLoaderCallbacks = new ImageListLoaderCallbacks();
                 getLoaderManager().initLoader(0, new Bundle(), this.mImageListLoaderCallbacks);
-                adapter = new WaterfallAdapter(getActivity(), R.layout.image_item, new ArrayList<ImageBean>());
+                adapter = new WaterfallAdapter(getActivity(), R.layout.image_item, imageBeanList);
                 adapter.setOnBottonListener(new OnBottonListener() {
 
                     @Override
@@ -251,7 +252,7 @@ public class CoverFragment extends Fragment implements SwipeRefreshLayout.OnRefr
                 scrollFlag = true;
                 break;
             case 2:
-                scrollFlag = false;
+                scrollFlag = true;
                 break;
         }
 
@@ -261,30 +262,16 @@ public class CoverFragment extends Fragment implements SwipeRefreshLayout.OnRefr
     @Override
     public void onScroll(PLA_AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
 
-        // 当开始滑动且ListView底部的Y轴点超出屏幕最大范围时，显示或隐藏顶部按钮
-//        if (scrollFlag
-//                && ScreenUtil.getScreenViewBottomHeight(listView) >= ScreenUtil
-//                .getScreenHeight(MainActivity.this)) {
-//            if (firstVisibleItem > lastVisibleItemPosition) {// 上滑
-//
-//                int alpha = (firstVisibleItem-lastItemPosition)/3>1?255:(firstVisibleItem-lastItemPosition)/3*255;
-//                Log.e("哈哈哈","上滑,我在滚。。。我被改变了"+alpha);
-//
-//                titlebar.getBackground().setAlpha(alpha);
-//            } else if (firstVisibleItem < lastVisibleItemPosition) {// 下滑
-//
-//                int alpha = (lastItemPosition-firstVisibleItem)/3>1?255:(lastItemPosition-firstVisibleItem)/3*255;
-//                Log.e("哈哈哈","下滑,我在滚。。。我被改变了"+alpha);
-//
-//                titlebar.getBackground().setAlpha(alpha);
-//
-//            } else {
-//                return;
-//            }
-//            lastVisibleItemPosition = firstVisibleItem;
-
-
-//        }
+        if (scrollFlag) {
+            if (firstVisibleItem > lastVisibleItemPosition) {// 上滑
+                titlebar.setVisibility(View.INVISIBLE);
+            } else if (firstVisibleItem < lastVisibleItemPosition) {// 下滑
+                titlebar.setVisibility(View.VISIBLE);
+            } else {
+                return;
+            }
+            lastVisibleItemPosition = firstVisibleItem;
+        }
 
     }
 
@@ -299,27 +286,27 @@ public class CoverFragment extends Fragment implements SwipeRefreshLayout.OnRefr
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
         int x = (int) motionEvent.getX();
-        if (lastX < x) {
-            transparentValue = transparentValue - offset < 0 ? 0 : transparentValue - offset;
-            titlebar.getBackground().setAlpha(transparentValue);
-        } else if (lastX > x) {
-            transparentValue = transparentValue + offset > 255 ? 255 : transparentValue + offset;
-            titlebar.getBackground().setAlpha(transparentValue);
-        }
-
-        lastX = x;
-
-        int action = motionEvent.getAction();
-        switch (action) {
-            case MotionEvent.ACTION_UP:
-                if (transparentValue < 255 / 2) {
-                    titlebar.getBackground().setAlpha(transparentValue);
-                } else if (transparentValue > 255 / 2) {
-                    titlebar.getBackground().setAlpha(transparentValue);
-                }
-
-                break;
-        }
+//        if (lastX < x) {
+//            transparentValue = transparentValue - offset < 0 ? 0 : transparentValue - offset;
+//            titlebar.getBackground().setAlpha(transparentValue);
+//        } else if (lastX > x) {
+//            transparentValue = transparentValue + offset > 255 ? 255 : transparentValue + offset;
+//            titlebar.getBackground().setAlpha(transparentValue);
+//        }
+//
+//        lastX = x;
+//
+//        int action = motionEvent.getAction();
+//        switch (action) {
+//            case MotionEvent.ACTION_UP:
+//                if (transparentValue < 255 / 2) {
+//                    titlebar.getBackground().setAlpha(transparentValue);
+//                } else if (transparentValue > 255 / 2) {
+//                    titlebar.getBackground().setAlpha(transparentValue);
+//                }
+//
+//                break;
+//        }
 
 
         return false;
@@ -338,8 +325,7 @@ public class CoverFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         public void onLoadFinished(Loader<ImageListBean> arg0,
                                    ImageListBean imageBeans) {
             swipeLayout.setRefreshing(false);
-            mCache.put(Integer.parseInt(mPage), imageBeans);
-            adapter.addAll(mCache.get(Integer.parseInt(mPage)).getAll());
+            imageBeanList.addAll(imageBeans.getAll());
             adapter.notifyDataSetChanged();
             isReadMore = false;
         }

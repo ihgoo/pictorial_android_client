@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
@@ -106,25 +107,46 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="确定"
+            android:text="登陆"
             android:textColor="@color/white" />
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/bt_register"
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:background="@drawable/btn_getcode_seclect"
-        android:layout_marginTop="33dp"
-        android:gravity="center">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="注册"
-            android:textColor="@color/white" />
-    </RelativeLayout>
+            android:textColor="@color/black"
+            android:text="还未注册?"/>
+
+        <TextView
+            android:id="@+id/bt_register"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点此注册"
+            android:textColor="@color/blue"/>
+
+        <View
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="忘记密码了？"
+            android:textColor="@color/black"
+            android:layout_marginRight="10dp"/>
+
+
+
+        </LinearLayout>
+
 </LinearLayout>

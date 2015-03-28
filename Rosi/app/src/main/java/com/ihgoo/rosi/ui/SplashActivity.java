@@ -58,7 +58,7 @@ public class SplashActivity extends Activity {
         AnimatorSet anim = new AnimatorSet();
         anim.playTogether(ObjectAnimator.ofFloat(mView, "scaleX", 1.5f, 1f),
                 ObjectAnimator.ofFloat(mView, "scaleY", 1.5f, 1f));
-        anim.setDuration(3000);
+        anim.setDuration(2000);
         anim.start();
 
 
@@ -91,7 +91,7 @@ public class SplashActivity extends Activity {
 
 
             }
-        }, 3000); // 3000 for release
+        }, 2000); // 3000 for release
     }
 
 

@@ -43,12 +43,12 @@
                 android:textColor="@color/black"/>
 
             <TextView
+                android:gravity="center_vertical"
                 android:id="@+id/tv_phone"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@color/white"
                 android:paddingLeft="20dp"
-                android:numeric="integer"
                 android:singleLine="true"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
@@ -80,7 +80,7 @@
                 android:layout_height="50dp"
                 android:background="@color/white"
                 android:paddingLeft="20dp"
-                android:numeric="integer"
+                android:password="true"
                 android:singleLine="true"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
@@ -109,7 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="确定"
+            android:text="注册"
             android:textColor="@color/white" />
     </RelativeLayout>
 

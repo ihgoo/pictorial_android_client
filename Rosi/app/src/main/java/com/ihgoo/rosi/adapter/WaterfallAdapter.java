@@ -13,6 +13,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ihgoo.rosi.ui.CoverFragment;
@@ -90,7 +91,7 @@ public class WaterfallAdapter extends ArrayAdapter<ImageBean> {
 
         if (view == null) {
             LayoutInflater inflater = LayoutInflater.from(mContext);
-            view = inflater.inflate(R.layout.image_waterfall_item, null);
+            view = inflater.inflate(R.layout.image_waterfall_album_item, null);
         }
 
 
@@ -107,6 +108,8 @@ public class WaterfallAdapter extends ArrayAdapter<ImageBean> {
             }
         });
 
+
+        viewHolder.tvName.setText(imageBean.getAlt()+"");
 
         ImageLoader.getInstance().displayImage(imageBean.getImgurl(), viewHolder.rowIcon, new ImageLoadingListener() {
 
@@ -181,6 +184,9 @@ public class WaterfallAdapter extends ArrayAdapter<ImageBean> {
         ImageView rowIcon;
         @InjectView(R.id.pb_load)
         ProgressBar pbLoad;
+
+        @InjectView(R.id.tv_name)
+        TextView tvName;
 
         ViewHolder(View view) {
             ButterKnife.inject(this, view);

@@ -6,11 +6,12 @@
 
     <ListView
         android:id="@+id/left_drawer"
-        android:layout_width="240.0dip"
-        android:layout_height="fill_parent"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
         android:layout_gravity="start"
         android:choiceMode="singleChoice"
+        android:drawSelectorOnTop="true"
         android:divider="@android:color/transparent"
-        android:dividerHeight="0.0dip" />
+        android:dividerHeight="0dp" />
 
 </LinearLayout>

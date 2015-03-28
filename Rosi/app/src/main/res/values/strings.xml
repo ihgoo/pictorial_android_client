@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">鲁小妹写真</string>
+    <string name="app_name">小妹写真</string>
     <string name="header_hint_refresh_normal">下拉加载前一页</string>
     <string name="header_hint_refresh_ready">松手加载前一页</string>
     <string name="header_hint_refresh_loading">加载中</string>

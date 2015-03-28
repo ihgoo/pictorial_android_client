@@ -18,7 +18,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ihgoo.rosi.R;
+import com.ihgoo.rosi.persistence.NosqlConstant;
 import com.ihgoo.rosi.utils.ToastUtil;
+import com.snappydb.DB;
+import com.snappydb.DBFactory;
+import com.snappydb.SnappydbException;
 
 import java.io.File;
 import java.io.IOException;
@@ -124,7 +128,7 @@ public class SettingFragment extends Fragment {
 
 
 
-    @OnClick({R.id.goBack})
+    @OnClick({R.id.goBack,R.id.btn_exit})
     void onClick(View v){
         switch (v.getId()) {
             case R.id.goBack:
@@ -180,6 +184,13 @@ public class SettingFragment extends Fragment {
 //                startActivity(aboutIntent);
                 break;
             case R.id.btn_exit:
+
+                try {
+                    DB db = DBFactory.open(getActivity());
+                    db.put(NosqlConstant.IS_FIRST,false);
+                } catch (SnappydbException e) {
+                    e.printStackTrace();
+                }
 
 //                CustomDialog.Builder builder = new CustomDialog.Builder(this);
 //                builder.setMessage("确定退出登录吗？");

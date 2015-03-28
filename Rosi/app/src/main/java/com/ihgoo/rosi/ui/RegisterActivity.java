@@ -68,7 +68,7 @@ public class RegisterActivity extends Activity {
                     HashMap<String, Object> phoneMap = (HashMap<String, Object>) data;
                     String country = (String) phoneMap.get("country");
                     phone = (String) phoneMap.get("phone");
-                    tvPhone.setText("您的手机号：  "+phone);
+                    tvPhone.setText(phone);
                 }
             }
         });

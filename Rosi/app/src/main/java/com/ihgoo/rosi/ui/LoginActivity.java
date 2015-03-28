@@ -49,7 +49,7 @@ public class LoginActivity extends Activity {
     RelativeLayout btLogin;
 
     @InjectView(R.id.bt_register)
-    RelativeLayout btRegister;
+    TextView btRegister;
 
 
     String usn;
@@ -65,7 +65,6 @@ public class LoginActivity extends Activity {
 
     private void initView() {
         mainTitile.setText("登录");
-
     }
 
     @OnClick(R.id.bt_login)
@@ -107,6 +106,7 @@ public class LoginActivity extends Activity {
 
         Intent intent= new Intent(LoginActivity.this,RegisterActivity.class);
         startActivity(intent);
+        finish();
 
     }
 

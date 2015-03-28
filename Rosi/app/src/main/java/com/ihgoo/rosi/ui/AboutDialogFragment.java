@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class AboutDialogPreference extends DialogFragment {
+public class AboutDialogFragment extends DialogFragment {
 //	private final String LOG_TAG = getClass().getSimpleName();
 //
 //	public AboutDialogPreference(Context paramContext,
@@ -34,6 +34,8 @@ public class AboutDialogPreference extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 }
