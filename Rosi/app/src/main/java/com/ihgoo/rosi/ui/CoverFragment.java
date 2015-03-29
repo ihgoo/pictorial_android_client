@@ -56,10 +56,7 @@ public class CoverFragment extends Fragment implements SwipeRefreshLayout.OnRefr
     RelativeLayout titlebar;
 
     private ImageListLoaderCallbacks mImageListLoaderCallbacks;
-    private ImageDetailListLoaderCallbacks mImageDetailListLoaderCallbacks;
-    public static int mode = 0;
     public final static int MODE_IMAGELIST = 0;
-    public final static int MODE_IMAGEDETAILLIST = 1;
     private final int isLoading = 1;
     private final int isParsering = 2;
     private String mUrl;
@@ -67,11 +64,8 @@ public class CoverFragment extends Fragment implements SwipeRefreshLayout.OnRefr
     private List<ImageBean> mImageBeans;
     private boolean isReadMore = false;
     private String mPage;
-
-
     private WaterfallAdapter adapter;
-    public WaterfallSimpleAdapter madapter;
-
+    private String title;
 
     private Handler mHandler = new Handler() {
 
@@ -101,15 +95,12 @@ public class CoverFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         Bundle bundle = this.getArguments();
-        int mode = swithMode(bundle);
+        mUrl = bundle.getString("url");
+        mPage = bundle.getString("page");
+        title = bundle.getString("title","首页");
 
 
-        switch (mode) {
-            case MODE_IMAGEDETAILLIST:
-                mImageDetailListLoaderCallbacks = new ImageDetailListLoaderCallbacks();
-                getLoaderManager().initLoader(0, new Bundle(), this.mImageDetailListLoaderCallbacks);
-                break;
-            case MODE_IMAGELIST:
+
                 mImageListLoaderCallbacks = new ImageListLoaderCallbacks();
                 getLoaderManager().initLoader(0, new Bundle(), this.mImageListLoaderCallbacks);
                 adapter = new WaterfallAdapter(getActivity(), R.layout.image_item, imageBeanList);
@@ -130,9 +121,6 @@ public class CoverFragment extends Fragment implements SwipeRefreshLayout.OnRefr
                 });
 
 
-                break;
-        }
-
     }
 
 
@@ -142,21 +130,10 @@ public class CoverFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         getLoaderManager().restartLoader(0, localBundle1, mImageListLoaderCallbacks).forceLoad();
     }
 
-    private int swithMode(Bundle bundle) {
-        if (bundle != null) {
-            mode = bundle.getInt("mode");
-            mUrl = bundle.getString("url");
-            mPage = bundle.getString("page");
-        }
-        return mode;
-    }
 
 
     @Override
     public void onDetach() {
-        if (mode == MODE_IMAGEDETAILLIST) {
-            mode = MODE_IMAGELIST;
-        }
         super.onDetach();
     }
 
@@ -168,28 +145,13 @@ public class CoverFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         swipeLayout.setColorSchemeResources(R.color.blue);
         initView();
         refresh();
-        switch (mode) {
-            case MODE_IMAGEDETAILLIST:
-                break;
-            case MODE_IMAGELIST:
                 View view = View.inflate(getActivity(), R.layout.loading, null);
                 waterfallView.addFooterView(view);
                 waterfallView.setAdapter(adapter);
-                break;
-        }
     }
 
     private void initView() {
-        switch (mode) {
-            case MODE_IMAGEDETAILLIST:
-                mainTitile.setText("专辑");
-                break;
-            case MODE_IMAGELIST:
-                mainTitile.setText("首页");
-                break;
-        }
-
-
+        mainTitile.setText(title);
         waterfallView.setOnScrollListener(this);
         waterfallView.setOnTouchListener(this);
         View view = new View(getActivity());
@@ -203,11 +165,7 @@ public class CoverFragment extends Fragment implements SwipeRefreshLayout.OnRefr
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = null;
-        if (mode == MODE_IMAGELIST) {
             view = inflater.inflate(R.layout.layout_content, null);
-        } else if (mode == MODE_IMAGEDETAILLIST) {
-            view = inflater.inflate(R.layout.layout_content_small, null);
-        }
 
         if (view == null) {
             try {
@@ -221,14 +179,7 @@ public class CoverFragment extends Fragment implements SwipeRefreshLayout.OnRefr
     }
 
     public void refresh() {
-        switch (mode) {
-            case MODE_IMAGEDETAILLIST:
-                getLoaderManager().restartLoader(0, null, mImageDetailListLoaderCallbacks).forceLoad();
-                break;
-            case MODE_IMAGELIST:
                 getLoaderManager().restartLoader(0, null, mImageListLoaderCallbacks).forceLoad();
-                break;
-        }
     }
 
     @Override
@@ -336,27 +287,5 @@ public class CoverFragment extends Fragment implements SwipeRefreshLayout.OnRefr
 
     }
 
-
-    public class ImageDetailListLoaderCallbacks implements
-            LoaderManager.LoaderCallbacks<List<ImageSimpleBean>> {
-
-
-        @Override
-        public Loader<List<ImageSimpleBean>> onCreateLoader(int arg0, Bundle arg1) {
-            return new ImageDetailListLoader(getActivity(), mHandler, mUrl);
-        }
-
-        @Override
-        public void onLoadFinished(Loader<List<ImageSimpleBean>> arg0,
-                                   List<ImageSimpleBean> urList) {
-            mUrlList = urList;
-            madapter = new WaterfallSimpleAdapter(mUrlList, getActivity(), mUrl);
-            waterfallView.setAdapter(madapter);
-        }
-
-        @Override
-        public void onLoaderReset(Loader<List<ImageSimpleBean>> arg0) {
-        }
-    }
 
 }

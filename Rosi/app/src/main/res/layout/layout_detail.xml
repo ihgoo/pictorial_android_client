@@ -1,59 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:id="@+id/adLayout"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:visibility="visible" >
-    </RelativeLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-    <TextView
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#30000000" />
+        android:layout_height="match_parent" />
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:background="#99000000"
+        android:orientation="horizontal"
+        android:padding="8dp">
 
-        <TextView
-            android:id="@+id/chat"
+        <View
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_6_social_chat"
-            android:gravity="center_horizontal"
-            android:text="@string/topic" />
+            android:layout_height="0.5dp"
+            android:layout_weight="2" />
 
-        <TextView
+
+        <ImageView
             android:id="@+id/favorites"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_3_rating_favorite"
-            android:gravity="center_horizontal"
-            android:text="@string/favorites" />
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/ab_fav_normal"
+            android:gravity="center_horizontal" />
 
-        <TextView
+        <ImageView
             android:id="@+id/share"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/ic_6_social_share"
-            android:gravity="center_horizontal"
-            android:text="@string/share" />
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@android:drawable/ic_menu_share"
+            android:gravity="center_horizontal" />
     </LinearLayout>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="14dp"
+        android:textSize="18sp"
+        android:textColor="@color/white" />
+
+
+</FrameLayout>

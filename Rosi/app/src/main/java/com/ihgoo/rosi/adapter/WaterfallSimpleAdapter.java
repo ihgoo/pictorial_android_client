@@ -142,6 +142,7 @@ public class WaterfallSimpleAdapter extends BaseAdapter {
                 Intent intent = new Intent();
                 intent.putExtra("info", (Serializable) list);
                 intent.putExtra("url", mUrl);
+                intent.putExtra("position",position);
                 intent.setClass(mContext, PhotoDetailActivity.class);
                 mContext.startActivity(intent);
                 Log.i("TAG", "image click");

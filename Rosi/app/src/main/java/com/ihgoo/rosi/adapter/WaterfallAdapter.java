@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ihgoo.rosi.ui.AlbumFragment;
 import com.ihgoo.rosi.ui.CoverFragment;
 import com.ihgoo.rosi.ui.MainPageActivity;
 import com.ihgoo.rosi.R;
@@ -99,9 +100,8 @@ public class WaterfallAdapter extends ArrayAdapter<ImageBean> {
         viewHolder.rowIcon.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                CoverFragment fragment = new CoverFragment();
+                AlbumFragment fragment = new AlbumFragment();
                 Bundle bundle = new Bundle();
-                bundle.putInt("mode", CoverFragment.MODE_IMAGEDETAILLIST);
                 bundle.putString("url", imageBean.getDetailurl());
                 fragment.setArguments(bundle);
                 ((MainPageActivity) mContext).addFragment(fragment);

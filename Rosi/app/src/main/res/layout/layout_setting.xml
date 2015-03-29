@@ -320,55 +320,6 @@
             android:background="#d0d0d0" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="50.5dp"
-        android:orientation="vertical">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="#d0d0d0" />
-
-        <RelativeLayout
-            android:id="@+id/rl_help"
-            android:layout_width="match_parent"
-            android:layout_height="49.5dp"
-            android:background="@color/white">
-
-            <ImageView
-                android:id="@+id/iv_help"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="16dp"
-                android:background="@drawable/ic_setting_help" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="20dp"
-                android:layout_toRightOf="@id/iv_help"
-                android:text="帮助中心"
-                android:textColor="@drawable/selectable_text"
-                android:textSize="17sp" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="16dp"
-                android:background="@drawable/ic_comm_next" />
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="#d0d0d0" />
-    </LinearLayout>
 
     <View
         android:layout_marginTop="40dp"

@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.ihgoo.rosi.R;
 import com.ihgoo.rosi.adapter.LeftAdapter;
+import com.ihgoo.rosi.api.API;
 import com.ihgoo.rosi.utils.Theme;
 
 import butterknife.ButterKnife;
@@ -52,7 +53,7 @@ public class MenuFragment extends Fragment {
                 bundle0.putInt("mode", CoverFragment.MODE_IMAGELIST);
                 bundle0.putString("url", "http://www.dirosi.com/page/");
                 bundle0.putString("page", "1");
-
+                bundle0.putString("title", "首页");
                 contentFragment0.setArguments(bundle0);
                 ((MainPageActivity) getActivity()).switchFragment(contentFragment0);
                 break;
@@ -63,8 +64,9 @@ public class MenuFragment extends Fragment {
                 CoverFragment contentFragment = new CoverFragment();
                 Bundle bundle = new Bundle();
                 bundle.putInt("mode", CoverFragment.MODE_IMAGELIST);
-                bundle.putString("url", "http://www.dirosi.com/category/rosi/page/");
+                bundle.putString("url", API.ROSI);
                 bundle.putString("page", "1");
+                bundle.putString("title", "ROSI写真");
 
                 contentFragment.setArguments(bundle);
                 ((MainPageActivity) getActivity()).switchFragment(contentFragment);
@@ -74,9 +76,9 @@ public class MenuFragment extends Fragment {
                 CoverFragment contentFragment1 = new CoverFragment();
                 Bundle bundle1 = new Bundle();
                 bundle1.putInt("mode", CoverFragment.MODE_IMAGELIST);
-                bundle1.putString("url", "http://www.dirosi.com/category/disi/page/");
+                bundle1.putString("url", API.XIUREN);
                 bundle1.putString("page", "1");
-
+                bundle1.putString("title", "秀人写真");
                 contentFragment1.setArguments(bundle1);
                 ((MainPageActivity) getActivity()).switchFragment(contentFragment1);
                 break;
@@ -85,9 +87,9 @@ public class MenuFragment extends Fragment {
                 CoverFragment contentFragment2 = new CoverFragment();
                 Bundle bundle2 = new Bundle();
                 bundle2.putInt("mode", CoverFragment.MODE_IMAGELIST);
-                bundle2.putString("url", "http://www.dirosi.com/category/disi/page/");
+                bundle2.putString("url", API.DISI);
                 bundle2.putString("page", "1");
-
+                bundle2.putString("title", "第四印象");
                 contentFragment2.setArguments(bundle2);
                 ((MainPageActivity) getActivity()).switchFragment(contentFragment2);
                 break;

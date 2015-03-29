@@ -77,10 +77,6 @@ public class SettingFragment extends Fragment {
     ImageView ivShare;
     @InjectView(R.id.rl_share)
     RelativeLayout rlShare;
-    @InjectView(R.id.iv_help)
-    ImageView ivHelp;
-    @InjectView(R.id.rl_help)
-    RelativeLayout rlHelp;
     @InjectView(R.id.btn_exit)
     Button btnExit;
 

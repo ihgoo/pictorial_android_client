@@ -10,6 +10,7 @@ import com.ihgoo.rosi.R;
 import com.ihgoo.rosi.bean.ImageBean;
 import com.ihgoo.rosi.bean.ImageSimpleBean;
 import com.ihgoo.rosi.net.LargeImageAsync;
+import com.ihgoo.rosi.utils.LogUtils;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public class PagerAdapter extends android.support.v4.view.PagerAdapter {
 	private Context mContext;
 
 	public PagerAdapter(Context context, List<ImageSimpleBean> list,
-			LayoutInflater layoutInflater) {
+                        LayoutInflater layoutInflater) {
 		this.list = list;
 		this.inflater = layoutInflater;
 		mContext = context;
@@ -52,7 +53,7 @@ public class PagerAdapter extends android.support.v4.view.PagerAdapter {
 			@Override
 			protected void onPostExecute(ImageBean result) {
 				String imgurl = result.getImgurl();
-
+                LogUtils.e("imgurl------>>>>" + imgurl);
 				ImageLoader.getInstance().displayImage(imgurl, photoView);
 			}
 		}.execute();
