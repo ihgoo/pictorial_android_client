@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="240dp"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -7,8 +8,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/black"
+        android:layout_height="120dp"
+        android:background="@drawable/bg_drawer_header"
         android:orientation="vertical">
 
 
@@ -19,8 +20,12 @@
 
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/ic_launcher"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/avatar"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
 
             <TextView
                 android:layout_margin="16dp"
@@ -28,10 +33,15 @@
                 android:layout_height="wrap_content"
                 android:text="请登录"
                 android:textColor="@color/white"
-                android:textSize="18sp" />
-
+                android:textSize="20sp" />
 
         </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -39,17 +49,21 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_margin="8dp"
+                android:id="@+id/tv_my_star"
+                android:layout_margin="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="18sp"
                 android:text="我的收藏"
                 android:textColor="@color/white" />
 
             <TextView
-                android:layout_margin="8dp"
+                android:id="@+id/tv_my_download"
+                android:layout_margin="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="离线下载"
+                android:textSize="18sp"
                 android:textColor="@color/white" />
 
         </LinearLayout>
